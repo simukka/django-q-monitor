@@ -1,11 +1,6 @@
-from django.views.generic.detail import SingleObjectMixin, DetailView
-from django.views.generic.base import TemplateView, ContextMixin, View
-from django.views.generic.list import MultipleObjectMixin, ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.utils.decorators import classonlymethod
-from django.http import HttpResponse
-from django.urls import reverse_lazy
-from django_q.models import Task, Schedule, OrmQ, Failure, Success
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from django_q.models import Task, Failure, Success
 
 class TaskListView(ListView):
     model = Task
