@@ -1,0 +1,36 @@
+<div class="card shadow-sm">
+    <div class="card-header bg-transparent">
+        <h1 class="h4 m-0">Queued tasks {{paginator.count}}</h1>
+    </div>
+    <div class="card-body table-responsive p-0">
+        {% include 'django_q_monitor/nav_partial.html' %}
+        <table class="table table-hover table-sm m-0">
+            <thead>
+                <tr>
+                    <th class="pl-4">#</th>
+                    <th>Key</th>
+                    <th>Payload</th>
+                    <th>Lock</th>
+                    <th>Task</th>
+                    <th>Func</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for o in object_list %}
+                <tr class="">
+                    <td class="pl-4">{{o.id}}</td>
+                    <td>{{o.key}}</td>
+                    <td>{{o.payload|length}} bytes</td>
+                    <td>{{o.lock}}</td>
+                    <td><abbr title="{{o.task_id}}">{{o.name}}</abbr></td>
+                    <td><pre class="m-0">{{o.func}} {{o.task.args}}</pre></td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8" class="bg-light text-muted pl-4">No queued tasks.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

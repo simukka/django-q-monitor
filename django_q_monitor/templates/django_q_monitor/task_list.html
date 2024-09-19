@@ -1,0 +1,8 @@
+<div class="card shadow-sm">
+    <div class="card-header bg-transparent">
+        <h1 class="h4 m-0">Tasks {{paginator.count}}</h1>
+    </div>
+    <div class="card-body table-responsive p-0">
+    {% include 'django_q/task_list_partial.html' %}
+    </div>
+</div>
