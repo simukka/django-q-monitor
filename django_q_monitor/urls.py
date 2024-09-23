@@ -1,6 +1,6 @@
 from django.urls import path
-from django_q_monitor.views.tasks import TaskListView, TaskFailureListView, TaskSuccessListView
-from django_q_monitor.views.ormq import OrmQListView
+from .views.tasks import TaskListView, TaskFailureListView, TaskSuccessListView
+from .views.ormq import OrmQListView
 
 urlpatterns = [
     path('tasks', TaskListView.as_view(), name='tasks_list'),
